@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 
-public class MainStub {
+ class MainStub {
 
 	@SuppressWarnings("unused")
 	private final static Random gen = new Random();
@@ -21,9 +21,9 @@ public class MainStub {
 		ArrayList<Arc> randomArcTree = 
 				BreadthFirstSearch.generateTree(graph,0);
 		randomTree = new ArrayList<>();
+
 		for (Arc a : randomArcTree) randomTree.add(a.support);
-	
-		
+
 		
 		return randomTree;
 	}

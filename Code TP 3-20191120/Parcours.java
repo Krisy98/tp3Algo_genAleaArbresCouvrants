@@ -32,7 +32,7 @@ public class Parcours {
 		
 	}
 	
-	private Parcours(Graph graph) {
+	public Parcours(Graph graph) {
 		this.graph = graph;
 		this.frontier = new Stack<>();
 		this.reached = new BitSet(graph.order);

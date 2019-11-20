@@ -135,13 +135,17 @@ public class RootedTree {
 	public int[] getDegreeDistribution(int maxDegree) {
 		int maxIndex = Math.min(maxDegree,order-1);
 		int[] degrees = new int[1+maxIndex];
+
 		for(int i = 0; i <= maxIndex; i++) degrees[i] = 0;
+
 		int degree;
+
 		for (Node n : bfsOrder) {
 			degree = n.sons.size() + (n == root ? 0 : 1);
 			if (degree <= maxIndex)
 				degrees[degree]++;
 		}
+
 		return degrees;
 	}
 	
