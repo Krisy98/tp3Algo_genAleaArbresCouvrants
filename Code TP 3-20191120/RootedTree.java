@@ -133,7 +133,8 @@ public class RootedTree {
 	
 	
 	public int[] getDegreeDistribution(int maxDegree) {
-		int maxIndex = Math.min(maxDegree,order-1);
+		int maxIndex = Math.min(maxDegree, order-1);
+		//int maxIndex = maxDegree;
 		int[] degrees = new int[1+maxIndex];
 
 		for(int i = 0; i <= maxIndex; i++) degrees[i] = 0;
@@ -280,7 +281,7 @@ public class RootedTree {
 		int son = arc.getDest();
 		int father = arc.getSource();
 		nodes[son] = new Node(son);
-		nodes[father].sons.add(nodes[son]);
+		if(nodes[father] != null) nodes[father].sons.add(nodes[son]);
 	}	
 
 	

@@ -13,14 +13,15 @@ import javax.swing.SwingUtilities;
 	private final static Random gen = new Random();
 	
 	public static ArrayList<Edge> genTree(Graph graph) {
-		ArrayList<Edge> randomTree;
+		ArrayList<Edge> randomTree = new ArrayList<>();
 		
 		// TOOO : modifier l'algorithme utiliser ici.
 		
 		// Non-random BFS
-		ArrayList<Arc> randomArcTree = 
-				BreadthFirstSearch.generateTree(graph,0);
-		randomTree = new ArrayList<>();
+		ArrayList<Arc> randomArcTree = BreadthFirstSearch.generateTree(graph,0);
+
+
+		System.out.println();
 
 		for (Arc a : randomArcTree) randomTree.add(a.support);
 
@@ -47,7 +48,7 @@ import javax.swing.SwingUtilities;
 		long wienerSum = 0;
 		int degreesSum[] = {0, 0, 0, 0, 0};
 		int degrees[];
-		
+
 		ArrayList<Edge> randomTree = null; 
 		RootedTree rooted = null;
 
@@ -62,9 +63,12 @@ import javax.swing.SwingUtilities;
 			wienerSum = wienerSum + rooted.getWienerIndex();
 			
 			degrees = rooted.getDegreeDistribution(4);
+
 			for (int j = 1; j < 5; j++) {
+			//- yet - for (int j = 1; j < degrees.length; j++) {
 				degreesSum[j] = degreesSum[j] + degrees[j];
 			}
+
 		}		
 		long delay = System.nanoTime() - startingTime;
 		

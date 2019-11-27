@@ -15,5 +15,8 @@ public class Arc {
 	public int getDest() {
 		return (reversed ? support.getSource() : support.getDest());
 	}
-	
+
+	public boolean haveDest() {
+		return !reversed;
+	}
 }
