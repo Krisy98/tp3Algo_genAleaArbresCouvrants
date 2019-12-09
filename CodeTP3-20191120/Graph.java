@@ -10,6 +10,7 @@ public class Graph implements Iterable<Edge>{
 	int edgeCardinality;
 	
 	ArrayList<LinkedList<Edge>> adjacency;
+
 	ArrayList<LinkedList<Arc>> inAdjacency;
 	ArrayList<LinkedList<Arc>> outAdjacency;
 	
@@ -119,10 +120,8 @@ public class Graph implements Iterable<Edge>{
 		adjacency.set(vertex, null);
 		inAdjacency.set(vertex, null);
 		outAdjacency.set(vertex, null);
-		
 	}
-	
-	
+
 	private class EdgeIterator implements Iterator<Edge>{
 		
 		Iterator<LinkedList<Arc>> vertexIt;

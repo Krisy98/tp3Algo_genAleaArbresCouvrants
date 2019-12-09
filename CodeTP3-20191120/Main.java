@@ -1,10 +1,9 @@
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+
+
 import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
 
  class MainStub {
@@ -18,22 +17,19 @@ import javax.swing.SwingUtilities;
 		// TOOO : modifier l'algorithme utiliser ici.
 		
 		// Non-random BFS
-		ArrayList<Arc> randomArcTree = BreadthFirstSearch.generateTree(graph,0);
-
+		ArrayList<Arc> randomArcTree = AldousBroderAlgorithm.generateTree(graph);
 
 		System.out.println();
 
 		for (Arc a : randomArcTree) randomTree.add(a.support);
 
-		
 		return randomTree;
 	}
 	
 	
 	public static void main(String argv[]) throws InterruptedException {
 
-		Grid grid = null;
-		grid = new Grid(1920/11,1080/11);
+		Grid grid = new Grid(1920/11,1080/11);
 		Graph graph = grid.graph;
 		
 //		Graph graph = new Complete(400).graph;
