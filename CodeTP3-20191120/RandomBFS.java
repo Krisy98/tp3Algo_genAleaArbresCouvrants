@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
+public class RandomBFS {
 
-public class BreadthFirstSearch {
+    public static ArrayList<Arc> generateTree(Graph graph) {
 
-    public static ArrayList<Arc> generateTree(Graph graph, int source) {
+        int source = new Random().nextInt(graph.order);
 
         ArrayList<Arc> tree = new ArrayList<>();
         List<Integer> waitingList = new LinkedList();
@@ -18,12 +20,16 @@ public class BreadthFirstSearch {
 
         while (waitingList.size() != 0){
 
-            source = waitingList.get(0);
-            waitingList.remove(0);
+            int oneOfWaitingList = new Random().nextInt(waitingList.size());
+
+            source = waitingList.get(oneOfWaitingList);
+            waitingList.remove(oneOfWaitingList);
 
             for (int index=0; index < graph.outAdjacency.get(source).size(); index++){
 
                 int destination = graph.outAdjacency.get(source).get(index).support.dest;
+
+                if (destination == source) destination = graph.outAdjacency.get(source).get(index).support.source;
 
                 if (!visited.get(destination).booleanValue()){
                     tree.add(graph.outAdjacency.get(source).get(index));
@@ -35,6 +41,7 @@ public class BreadthFirstSearch {
 
         return tree;
     }
+
 
 
 }

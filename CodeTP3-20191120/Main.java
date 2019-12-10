@@ -12,17 +12,19 @@ import javax.swing.JFrame;
 	private final static Random gen = new Random();
 	
 	public static ArrayList<Edge> genTree(Graph graph) {
+
 		ArrayList<Edge> randomTree = new ArrayList<>();
 		
 		// TOOO : modifier l'algorithme utiliser ici.
 		
 		// Non-random BFS
-		ArrayList<Arc> randomArcTree = AldousBroderAlgorithm.generateTree(graph);
+		ArrayList<Arc> randomArcTree = RandomBFS.generateTree(graph);
 
-		System.out.println();
 
-		for (Arc a : randomArcTree) randomTree.add(a.support);
-
+		for (Arc a : randomArcTree) {
+			//System.out.println("Edge : from " + a.support.source + " to " + a.support.dest);
+			randomTree.add(a.support);
+		}
 		return randomTree;
 	}
 	
